@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bairdwell</title>
+<style>
+  html, body { height: 100%; margin: 0; }
+  body {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #fdf6e3; color: #333; text-align: center; padding: 1rem; box-sizing: border-box;
+  }
+  h1 { font-weight: 300; letter-spacing: 0.1em; margin: 0 0 2rem; }
+  button {
+    font-size: 1.5rem; padding: 1.2rem 2.4rem; border: none; border-radius: 999px;
+    background: #e4572e; color: #fff; cursor: pointer;
+    box-shadow: 0 6px 0 #a63a1c; transition: transform 0.05s, box-shadow 0.05s;
+  }
+  button:active { transform: translateY(4px); box-shadow: 0 2px 0 #a63a1c; }
+  #msg { margin-top: 2rem; min-height: 3em; font-size: 1.1rem; max-width: 30rem; }
+  #count { margin-top: 0.5rem; font-size: 0.85rem; color: #999; }
+</style>
+</head>
+<body>
+  <h1>bairdwell</h1>
+  <button id="btn">Do not press</button>
+  <div id="msg"></div>
+  <div id="count"></div>
+<script>
+  const messages = {
+    1: "You pressed it.",
+    2: "You pressed it again.",
+    3: "It doesn't do anything.",
+    5: "Really, nothing.",
+    8: "Okay, this is just sad now.",
+    13: "Are you okay?",
+    21: "The button is getting tired.",
+    34: "You've unlocked: nothing.",
+    50: "Halfway to 100. Not that 100 does anything.",
+    69: "Nice.",
+    100: "100 clicks. We're proud of you. Kind of.",
+    150: "Seriously, go outside.",
+    250: "The button has filed a complaint.",
+    500: "You win. There's no prize.",
+    1000: "We're out of messages. Please stop."
+  };
+  let n = 0;
+  const btn = document.getElementById("btn");
+  const msg = document.getElementById("msg");
+  const count = document.getElementById("count");
+  btn.addEventListener("click", () => {
+    n++;
+    if (messages[n]) msg.textContent = messages[n];
+    count.textContent = n + (n === 1 ? " press" : " presses");
+  });
+</script>
+</body>
+</html>
